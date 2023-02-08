@@ -81,10 +81,10 @@ public class DoublyLinkedList {
 			head = insert(head, data);
 		}
 		display(head);
-//		System.out.println("\nEnter an element to insert at begin");
-//		int ele=sc.nextInt();
-//		head=insertAtBegin(head,ele);
-//		display(head);
+		System.out.println("\nEnter an element to insert at begin");
+		int ele=sc.nextInt();
+		head=insertAtBegin(head,ele);
+		display(head);
 		System.out.println("Enter position and element");
 		int pos=sc.nextInt();
 		int posEle=sc.nextInt();

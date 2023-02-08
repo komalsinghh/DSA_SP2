@@ -69,6 +69,7 @@ public class SingleLinkedList {
 				curr = curr.next;
 			}
 		}
+		System.out.println();
 	}
 
 	/**
