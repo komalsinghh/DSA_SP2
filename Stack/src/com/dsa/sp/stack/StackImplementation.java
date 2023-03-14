@@ -16,29 +16,26 @@ class MyStack {
 		arr = new int[capacity];
 	}
 
-	void push(int data) {
+	void push(int data) throws Exception {
 		if (top == capacity - 1) {
-			System.out.println("Stack is full");
-			return;
+			throw new Exception("Stack is Full");
 		}
 		top++;
 		arr[top] = data;
 	}
 
-	int pop() {
+	int pop() throws Exception {
 		if (top == -1) {
-			System.out.println("Stack is empty");
-			return -1;
+			throw new Exception("Stack is Empty");
 		}
 		int res = arr[top];
 		--top;
 		return res;
 	}
 
-	int peek() {
+	int peek() throws Exception {
 		if (top == -1) {
-			System.out.println("Stack is empty");
-			return -1;
+			throw new Exception("Stack is Empty");
 		}
 		return arr[top];
 	}
@@ -47,10 +44,9 @@ class MyStack {
 		return top == -1;
 	}
 
-	void display() {
+	void display() throws Exception {
 		if (top == -1) {
-			System.out.println("Stack is empty");
-			return;
+			throw new Exception("Stack is Empty");
 		}
 		for (int i = 0; i <= top; i++) {
 			System.out.print(arr[i] + " ");
@@ -59,7 +55,7 @@ class MyStack {
 }
 
 public class StackImplementation {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Capacity");
 		int n = sc.nextInt();
