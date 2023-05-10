@@ -11,6 +11,28 @@ import java.util.Stack;
  *
  */
 public class LargestRectangularAreaHistogram {
+	//Best Approach O(n)
+	static int bestLargestArea(int[] arr,int n) {
+		Stack <Integer> s=new Stack<>();
+		int res=0, curr=0;
+		for(int i=0;i<n;i++) {
+			while(!s.isEmpty() && arr[s.peek()]>=arr[i]) {
+				int top=s.peek();
+				s.pop();
+				curr=arr[top]*(s.isEmpty()?i:i-s.peek()-1);
+				res=Math.max(res, curr);
+			}
+			s.push(i);
+		}
+		while(s.isEmpty()==false) {
+			int top=s.peek();
+			s.pop();
+			curr=arr[top]*(s.isEmpty()?n:n-s.peek()-1);
+			res=Math.max(res, curr);
+		}
+		return res;
+	}
+	
 	//Better Approach O(n)
 	static int largestArea(int[] arr, int n) {
 		int res=0;
@@ -79,7 +101,8 @@ public class LargestRectangularAreaHistogram {
 		for (int i = 0; i < capacity; i++) {
 			arr[i] = sc.nextInt();
 		}
-		System.out.println(largestArea(arr, capacity));
+		//System.out.println(largestArea(arr, capacity));
+		System.out.println(bestLargestArea(arr, capacity));
 		sc.close();
 	}
 
